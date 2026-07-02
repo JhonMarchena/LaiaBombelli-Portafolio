@@ -1,0 +1,54 @@
+/* IMPORTACIÓN DE GOOGLE FONTS */
+@import url("https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap");
+@import "tailwindcss";
+
+:root {
+  /*COLORES GENERALES*/
+  --primary: #fff;
+  --secondary: #202020;
+  --secondary-2: #161717;
+  --tertiary: #424242;
+  --text: #08060d;
+
+  /*TIPOGRAFÍA*/
+  --sans:
+    "Tenor Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --heading:
+    "Tenor Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  /*ESPACIADO*/
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--primary);
+
+  /*RENDERIZADO DE FUENTES*/
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  width: 100svw;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: var(--heading);
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  letter-spacing: 0.3rem;
+}
