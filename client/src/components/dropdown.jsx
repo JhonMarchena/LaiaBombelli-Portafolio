@@ -17,11 +17,13 @@ const Item = styled(DropdownMenu.Item)`
   outline: none;
   color: #1a1a1a;
   transform-origin: left center;
-  transition: transform 0.2s ease-out, color 0.2s ease-out;
+  transition:
+    transform 0.2s ease-out,
+    color 0.2s ease-out;
 
   &:hover {
     transform: scale(1.05);
-    color: #737373;   /* neutro */
+    color: #737373; /* neutro */
   }
 `;
 
@@ -31,7 +33,9 @@ const TriggerButton = styled.button`
   cursor: pointer;
   outline: none;
   color: #000;
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
 
   &:hover {
     color: #666;
@@ -39,22 +43,29 @@ const TriggerButton = styled.button`
   }
 `;
 
+const scrollToSection = (id) => {
+  document.getElementById(id)?.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+};
+
 function MenuHamburguesa() {
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
         <TriggerButton>
-          <Menu size={25} />
+          <Menu size={20} />
         </TriggerButton>
       </DropdownMenu.Trigger>
 
       <DropdownMenu.Portal>
         <Content>
-          <Item onClick={() => console.log("Home")}>Home</Item>
-          <Item onClick={() => console.log("Articles")}>Articles</Item>
-          <Item onClick={() => console.log("Fashion Show")}>Fashion Show</Item>
-          <Item onClick={() => console.log("Shooting")}>Shooting</Item>
-          <Item onClick={() => console.log("About Me")}>About Me</Item>
+          <Item onClick={() => scrollToSection("home")}>Home</Item>
+          <Item onClick={() => scrollToSection("fashion-show")}>Fashion Show</Item>
+          <Item onClick={() => scrollToSection("articles")}>Articles</Item>
+          <Item onClick={() => scrollToSection("shooting")}>Shooting</Item>
+          <Item onClick={() => scrollToSection("about-me")}>About Me</Item>
         </Content>
       </DropdownMenu.Portal>
     </DropdownMenu.Root>
