@@ -1,6 +1,34 @@
 import { motion } from "motion/react";
+import ModalComponent from "../../components/modal";
+import CarouselComponent from "../../components/carousel";
 
-import img1 from "../../assets/fashionshow1.jpeg";
+import img1 from "../../assets/fashionshow1.jpeg"
+import img2 from "../../assets/fashionshow2.jpeg"
+import img3 from "../../assets/fashionshow3.jpeg"
+import img4 from "../../assets/fashionshow4.jpeg"
+import img5 from "../../assets/fashionshow5.jpeg"
+import img6 from "../../assets/fashionshow6.jpeg"
+import img7 from "../../assets/fashionshow7.jpeg"
+import img8 from "../../assets/fashionshow8.jpeg"
+import img9 from "../../assets/fashionshow9.jpeg"
+import img10 from "../../assets/fashionshow10.jpeg"
+
+const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10];
+
+const links = [
+  {
+    name: "1 Granary",
+    url: "https://1granary.com/designers-3/graduate-shows/accademia-costume-moda-ba-2026-memory-and-material/",
+  },
+  {
+    name: "nss magazine",
+    url: "https://www.nssmag.com/it/fashion/44980/acm-talents-2026-graduate-show-kaleidoscopic",
+  },
+  {
+    name: "Vogue Italia",
+    url: "https://www.vogue.it/gallery/acm-talents-2026-sfilata-studenti-accademia-costume-and-moda-roma",
+  },
+];
 
 function FashionShow({ scrollToSection }) {
   return (
@@ -8,11 +36,17 @@ function FashionShow({ scrollToSection }) {
       <div className="flex flex-col md:flex-row rounded-lg border border-gray-300 shadow-lg w-[90%] max-w-6xl md:h-[85vh] mt-3 overflow-hidden">
         {/* fashion show image */}
         <div className="w-full md:w-1/3 h-64 md:h-full p-4">
-          <img
-            src={img1}
-            alt="Fashion Show"
-            className="w-full h-full object-cover rounded-lg shadow-xl"
-          />
+          <CarouselComponent>
+            {images.map((img, index) => (
+              <div key={index} className="h-64 md:h-full">
+                <img
+                  src={img}
+                  alt={`Fashion Show ${index + 1}`}
+                  className="w-full h-full object-cover rounded-sm shadow-xl object-[center_90%]"
+                />
+              </div>
+            ))}
+          </CarouselComponent>
         </div>
 
         {/* fashion show content */}
@@ -24,27 +58,55 @@ function FashionShow({ scrollToSection }) {
 
           {/* fashion show text */}
           <p className="text-justify text-base md:text-lg leading-relaxed tracking-wide text-gray-700 max-w-2xl">
-            lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            In April 2026 I took part in ACM Talents 2026 – "Kaleidoscopic," the
+            BA Graduate Show of the Accademia Costume & Moda in Rome, alongside
+            the program's 18 graduating designers. Before a jury including names
+            such as Maria Grazia Chiuri, Sabato De Sarno, and Sara Sozzani
+            Maino, I presented my accessories collection Enllaços de Memòries —
+            a tribute to craftsmanship and Catalan identity drawn from the
+            Sardana and the Castellers. The collection was featured by outlets
+            including{" "}
+            <a
+              href={links[0].url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:underline "
+            >
+              {links[0].name}
+            </a>
+            ,{" "}
+            <a
+              href={links[1].url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:underline"
+            >
+              {links[1].name}
+            </a>
+            , and{" "}
+            <a
+              href={links[2].url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:underline"
+            >
+              {links[2].name}
+            </a>
+            .
           </p>
 
           {/* see more button */}
-          <motion.button
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="border border-gray-500 shadow-lg rounded-full py-2 px-8 transition-colors hover:bg-gray-900 hover:text-white"
-            onClick={() => scrollToSection("carousel-articles")}
-          >
-            <span className="font-semibold">See more</span>
-          </motion.button>
+          <ModalComponent title="See more">
+            <div className="relative w-full aspect-video">
+              <iframe
+                className="absolute top-0 left-0 w-full h-full rounded-lg"
+                src="https://www.youtube.com/embed/7W_UG8Dvtlo?si=OsK_YdEy-upeHWAV"
+                title="YouTube video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
+          </ModalComponent>
         </div>
       </div>
     </div>

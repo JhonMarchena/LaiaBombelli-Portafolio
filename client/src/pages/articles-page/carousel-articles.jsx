@@ -1,6 +1,7 @@
 import React from "react";
 import { Carousel } from "antd";
 
+//Import images
 import img1 from "../../assets/IMG_9565.webp";
 import img2 from "../../assets/IMG_9560.webp";
 import img3 from "../../assets/IMG_9562.webp";
@@ -27,7 +28,7 @@ const imgStyle = {
   height: "90svh",
   objectFit: "cover",
   objectPosition: "center 35%", // valor por defecto
-  borderRadius: "8px",
+  borderRadius: "none",
   display: "block",
 };
 

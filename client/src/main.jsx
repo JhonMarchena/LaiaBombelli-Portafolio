@@ -8,6 +8,8 @@ import Shooting from "./pages/shooting-page/shooting.jsx";
 import Portfolio from "./pages/portfolio/portfolio.jsx";
 import AboutMe from "./pages/about-me/aboutme.jsx";
 
+
+//REMINDER: QUITAR LAS ROUTES YA QUE NO SE UTILIZAN EN NINGUNA PARTE DEL PROYECTO, YA QUE ES UN LANDING PAGE.
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>

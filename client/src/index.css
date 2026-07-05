@@ -52,3 +52,24 @@ h1 {
   font-size: 1.25rem;
   letter-spacing: 0.3rem;
 }
+
+
+.ant-carousel,
+.ant-carousel .slick-slider,
+.ant-carousel .slick-list,
+.ant-carousel .slick-track {
+  height: 100%;
+}
+
+.ant-carousel .slick-slide {
+  height: auto;
+}
+
+.ant-carousel .slick-slide > div {
+  height: 100%;
+}
+
+.ant-carousel .slick-list {
+  height: 100%;
+  border-radius: 0.5rem; /* mismo que rounded-lg */
+}

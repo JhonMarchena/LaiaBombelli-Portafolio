@@ -20,21 +20,7 @@ const scrollToSection = (id) => {
 
       {/* Nombre centrado */}
       <div className="flex flex-1 flex-col items-center justify-center w-full">
-        {/* <motion.h1
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          Laia Bombelli
-        </motion.h1> */}
-        {/* <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-gray-500 mt-2 text-xl"
-        >
-          Fashion Designer
-        </motion.p> */}
+      {/* AQUI EL VIDEO DEL HOMEPAGE */}
       </div>
 
       {/* Botón abajo */}
@@ -44,7 +30,7 @@ const scrollToSection = (id) => {
         transition={{ duration: 0.3, delay: 0 }}
         whileHover={{ scale: 1.1, backgroundColor: "rgb(107, 114, 128)" }}
         whileTap={{ scale: 0.95 }}
-        className="border border-gray-500 shadow-lg rounded-full text-white font-bold py-2 px-4 mb-8 self-center"
+        className="border border-gray-500 shadow-lg rounded-full text-white font-bold py-2 px-4 mb-8 self-center cursor-pointer "
         onClick={() => scrollToSection("carousel-articles")}
       >
         <ChevronDown color="black" size={24} />
