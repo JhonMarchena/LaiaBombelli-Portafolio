@@ -25,7 +25,7 @@ function ModalComponent({ children, title, header }) {
         transition={{ duration: 0.4 }}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className=" cursor-pointer border border-gray-500 shadow-lg rounded-full py-2 px-8 transition-colors hover:bg-gray-600 hover:text-white"
+        className=" cursor-pointer border border-gray-500 shadow-lg rounded-full py-2 px-4 transition-colors hover:bg-gray-600 hover:text-white"
         onClick={showModal}
       >
         <span>{title}</span>
@@ -49,7 +49,7 @@ function ModalComponent({ children, title, header }) {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               key="close"
-              className="text-center cursor-pointer border border-gray-500 shadow-lg rounded-lg outline-none py-2 px-5 transition-colors hover:bg-gray-600 hover:text-white"
+              className="text-center cursor-pointer border border-gray-500 shadow-lg rounded-lg outline-none py-2 px-4 transition-colors hover:bg-gray-600 text-red-600 hover:text-white"
               onClick={handleCancel}
             >
               <span>Close</span>

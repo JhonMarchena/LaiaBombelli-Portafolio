@@ -31,6 +31,36 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--secondary) transparent;
+}
+
+/* WebKit (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;   /* para scroll horizontal */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--secondary);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--tertiary);
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+
 body {
   margin: 0;
 }
@@ -71,5 +101,4 @@ h1 {
 
 .ant-carousel .slick-list {
   height: 100%;
-  border-radius: 0.5rem; /* mismo que rounded-lg */
 }

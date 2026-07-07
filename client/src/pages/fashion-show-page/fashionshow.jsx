@@ -42,7 +42,7 @@ function FashionShow({ scrollToSection }) {
                 <img
                   src={img}
                   alt={`Fashion Show ${index + 1}`}
-                  className="w-full h-full object-cover rounded-sm shadow-xl object-[center_90%]"
+                  className="w-full h-full object-cover shadow-xl object-[center_90%]"
                 />
               </div>
             ))}
@@ -57,7 +57,7 @@ function FashionShow({ scrollToSection }) {
           </h1>
 
           {/* fashion show text */}
-          <p className="text-justify text-base md:text-lg leading-relaxed tracking-wide text-gray-700 max-w-2xl">
+          <p className="text-justify text-base md:text-lg leading-relaxed tracking-wide text-gray-500 max-w-2xl">
             In April 2026 I took part in ACM Talents 2026 – "Kaleidoscopic," the
             BA Graduate Show of the Accademia Costume & Moda in Rome, alongside
             the program's 18 graduating designers. Before a jury including names
@@ -99,7 +99,7 @@ function FashionShow({ scrollToSection }) {
           <ModalComponent title="See more">
             <div className="relative w-full aspect-video">
               <iframe
-                className="absolute top-0 left-0 w-full h-full rounded-lg"
+                className="absolute top-0 left-0 w-full h-full"
                 src="https://www.youtube.com/embed/7W_UG8Dvtlo?si=OsK_YdEy-upeHWAV"
                 title="YouTube video"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
