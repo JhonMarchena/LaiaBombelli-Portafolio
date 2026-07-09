@@ -2,16 +2,16 @@ import { motion } from "motion/react";
 import ModalComponent from "../../components/modal";
 import CarouselComponent from "../../components/carousel";
 
-import img1 from "../../assets/fashionshow1.jpeg"
-import img2 from "../../assets/fashionshow2.jpeg"
-import img3 from "../../assets/fashionshow3.jpeg"
-import img4 from "../../assets/fashionshow4.jpeg"
-import img5 from "../../assets/fashionshow5.jpeg"
-import img6 from "../../assets/fashionshow6.jpeg"
-import img7 from "../../assets/fashionshow7.jpeg"
-import img8 from "../../assets/fashionshow8.jpeg"
-import img9 from "../../assets/fashionshow9.jpeg"
-import img10 from "../../assets/fashionshow10.jpeg"
+import img1 from "../../assets/fashion-show/fashionshow1.jpeg"
+import img2 from "../../assets/fashion-show/fashionshow2.jpeg"
+import img3 from "../../assets/fashion-show/fashionshow3.jpeg"
+import img4 from "../../assets/fashion-show/fashionshow4.jpeg"
+import img5 from "../../assets/fashion-show/fashionshow5.jpeg"
+import img6 from "../../assets/fashion-show/fashionshow6.jpeg"
+import img7 from "../../assets/fashion-show/fashionshow7.jpeg"
+import img8 from "../../assets/fashion-show/fashionshow8.jpeg"
+import img9 from "../../assets/fashion-show/fashionshow9.jpeg"
+import img10 from "../../assets/fashion-show/fashionshow10.jpeg"
 
 const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10];
 

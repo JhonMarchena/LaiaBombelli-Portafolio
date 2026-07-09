@@ -2,6 +2,8 @@ import React from "react";
 import MainLayout from "./components/mainLayout";
 import ScrollReveal from "./components/scrollReveal";
 
+import { BagCarousel } from "./components/carousel";
+
 //PAGES IMPORT
 import HomePage from "./pages/home-page/homepage";
 import CarouselArticles from "./pages/articles-page/carousel-articles";
@@ -16,9 +18,7 @@ function App() {
         <HomePage />
       </section>
       <section id="carousel-articles">
-        <ScrollReveal>
-          <CarouselArticles />
-        </ScrollReveal>
+        <CarouselArticles />
       </section>
       <section id="fashion-show">
         <ScrollReveal>
@@ -29,6 +29,10 @@ function App() {
         <ScrollReveal>
           <AboutMe />
         </ScrollReveal>
+      </section>
+
+      <section>
+        <BagCarousel />
       </section>
     </MainLayout>
   );
