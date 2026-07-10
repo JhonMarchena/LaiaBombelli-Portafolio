@@ -31,7 +31,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Firefox */
+
 html {
   scrollbar-color: var(--secondary) transparent;
 }
@@ -41,23 +41,6 @@ html {
   width: 6px;
   height: 6px; /* para scroll horizontal */
 }
-
-/* ::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--secondary);
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--tertiary);
-}
-
-::-webkit-scrollbar-button {
-  display: none;
-} */
 
 body {
   margin: 0;
@@ -81,21 +64,3 @@ h1 {
   letter-spacing: 0.3rem;
 }
 
-/* .ant-carousel,
-.ant-carousel .slick-slider,
-.ant-carousel .slick-list,
-.ant-carousel .slick-track {
-  height: 100%;
-}
-
-.ant-carousel .slick-slide {
-  height: auto;
-}
-
-.ant-carousel .slick-slide > div {
-  height: 100%;
-}
-
-.ant-carousel .slick-list {
-  height: 100%;
-} */

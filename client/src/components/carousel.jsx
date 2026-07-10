@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
+import { BagModal } from "./modal";
 import { Carousel, Descriptions } from "antd";
 import { motion, useAnimationFrame } from "framer-motion";
-import BagModal from "./modalmotion.jsx";
 import "../index.css"; // estilos para forzar alto en los wrappers internos
 
 //imagenes import
@@ -12,21 +12,7 @@ import img4 from "../assets/articles-general/Opera_senza_titolo_3.webp";
 import img5 from "../assets/articles-general/Opera_senza_titolo_4.webp";
 import img6 from "../assets/articles-general/Opera_senza_titolo_5.webp";
 
-export default function CarouselComponent({ children }) {
-  return (
-    <Carousel
-      autoplay
-      autoplaySpeed={3000}
-      dots={true}
-      effect="fade"
-      className="h-full [&_.slick-list]:h-full [&_.slick-track]:h-full [&_.slick-slide]:h-full [&_.slick-slide>div]:h-full"
-    >
-      {children}
-    </Carousel>
-  );
-}
-
-// Reemplaza con tus imágenes reales
+//DATA BOLSOS CARRUSEL
 const bags = [
   { id: 1, src: img1, name: "Bolso 1", description: "Mmg" },
   { id: 2, src: img2, name: "Bolso 2" },
@@ -36,6 +22,23 @@ const bags = [
   { id: 6, src: img6, name: "Bolso 6" },
 ];
 
+//CARRUSEL COMPONENTE GENERAL
+export default function CarouselComponent({ children }) {
+  return (
+    <Carousel
+      autoplay
+      autoplaySpeed={3000}
+      dots={true}
+      effect="fade"
+      className="h-full"
+    >
+      {children}
+    </Carousel>
+  );
+}
+
+
+//MODAL PARA EL CARRUSEL DE BOLSOS
 export function BagCarousel() {
   const x = useRef(0);
   const trackRef = useRef(null);
