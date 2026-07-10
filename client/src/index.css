@@ -33,17 +33,16 @@
 
 /* Firefox */
 html {
-  scrollbar-width: thin;
   scrollbar-color: var(--secondary) transparent;
 }
 
 /* WebKit (Chrome, Edge, Safari) */
 ::-webkit-scrollbar {
   width: 6px;
-  height: 6px;   /* para scroll horizontal */
+  height: 6px; /* para scroll horizontal */
 }
 
-::-webkit-scrollbar-track {
+/* ::-webkit-scrollbar-track {
   background: transparent;
 }
 
@@ -58,8 +57,7 @@ html {
 
 ::-webkit-scrollbar-button {
   display: none;
-}
-
+} */
 
 body {
   margin: 0;
@@ -83,8 +81,7 @@ h1 {
   letter-spacing: 0.3rem;
 }
 
-
-.ant-carousel,
+/* .ant-carousel,
 .ant-carousel .slick-slider,
 .ant-carousel .slick-list,
 .ant-carousel .slick-track {
@@ -101,4 +98,4 @@ h1 {
 
 .ant-carousel .slick-list {
   height: 100%;
-}
+} */
