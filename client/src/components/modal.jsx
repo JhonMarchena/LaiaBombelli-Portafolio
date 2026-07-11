@@ -26,7 +26,7 @@ export default function ModalComponent({ children, title, header }) {
         transition={{ duration: 0.4 }}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className=" cursor-pointer border border-gray-500 shadow-lg rounded-full py-2 px-4 transition-colors hover:bg-gray-600 hover:text-white"
+        className="flex justify-center items-center cursor-pointer border w-[svw20] border-gray-500 shadow-lg rounded-full py-2 px-4 transition-colors hover:bg-gray-600 hover:text-white"
         onClick={showModal}
       >
         <span>{title}</span>
