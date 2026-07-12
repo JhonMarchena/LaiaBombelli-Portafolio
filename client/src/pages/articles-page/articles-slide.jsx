@@ -1,12 +1,11 @@
-import { BagModal } from "../../components/modal"
+import { BagCarousel } from "../../components/carousel.jsx";
 
 function Articles() {
   return (
-    <div>
-      <h1>Articles</h1>
-      <BagModal></BagModal>
+    <div className="relative flex min-h-[100%] items-center justify-center w-full flex-1 flex-col">
+      <BagCarousel />
     </div>
-  )
+  );
 }
 
-export default Articles
+export default Articles;

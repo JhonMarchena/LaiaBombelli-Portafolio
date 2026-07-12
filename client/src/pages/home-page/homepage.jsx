@@ -8,7 +8,7 @@ function HomePage() {
       {/* Navbar */}
       <Navbar />
 
-      {/* Nombre centrado */}
+      {/* Video centrado */}
       <div className="flex flex-1 flex-col items-center justify-center w-full">
         {/* AQUI EL VIDEO DEL HOMEPAGE */}
       </div>

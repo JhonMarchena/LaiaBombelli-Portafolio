@@ -13,6 +13,7 @@ function Navbar({ children }) {
         >
           Laia Bombelli
         </motion.h1> 
+        {/*DIV PARA TENER ESPACIO*/}
         <div></div>
       </nav>
       {children}

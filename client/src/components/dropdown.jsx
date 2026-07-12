@@ -62,10 +62,11 @@ function MenuHamburguesa() {
       <DropdownMenu.Portal>
         <Content>
           <Item onClick={() => scrollToSection("home")}>Home</Item>
-          <Item onClick={() => scrollToSection("fashion-show")}>Fashion Show</Item>
           <Item onClick={() => scrollToSection("articles")}>Articles</Item>
+          <Item onClick={() => scrollToSection("fashion-show")}>Fashion Show</Item>
           <Item onClick={() => scrollToSection("shooting")}>Shooting</Item>
           <Item onClick={() => scrollToSection("about-me")}>About Me</Item>
+          <Item onClick={() => scrollToSection("contact")}>Contact</Item>
         </Content>
       </DropdownMenu.Portal>
     </DropdownMenu.Root>

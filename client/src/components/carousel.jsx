@@ -80,7 +80,7 @@ export function BagCarousel() {
                   src={bag.src}
                   alt={bag.name}
                   loading="lazy"
-                  className="h-70 w-full object-fit"
+                  className="h-55 w-full object-contain"
                 />
               </div>
             </motion.div>
