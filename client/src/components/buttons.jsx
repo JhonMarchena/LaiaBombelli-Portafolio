@@ -9,7 +9,7 @@ export function IconButton({style, children}) {
     });
   };
 
-  const baseStyle = "border border-gray-500 shadow-lg rounded-full text-white font-bold py-2 px-4 mb-8 self-center cursor-pointer"
+  const baseStyle = "border  border-white shadow-lg rounded-full font-bold py-2 px-4 mb-8 self-center cursor-pointer"
 
   return (
     <motion.button

@@ -2,12 +2,11 @@ import React from "react";
 import { Carousel } from "antd";
 
 //Import images
-import img1 from "../../assets/IMG_9565.webp";
-import img2 from "../../assets/IMG_9560.webp";
-import img3 from "../../assets/IMG_9562.webp";
-import img4 from "../../assets/IMG_9571.webp";
-import img5 from "../../assets/IMG_9558.webp";
-import img6 from "../../assets/IMG_9561.webp";
+import img1 from "../../assets/carousel-section/IMG_7964.webp";
+import img2 from "../../assets/carousel-section/IMG_7975.webp";
+import img3 from "../../assets/carousel-section/IMG_7965.webp";
+import img4 from "../../assets/carousel-section/IMG_8019.webp";
+import img5 from "../../assets/carousel-section/IMG_7938.webp";
 
 const wrapperStyle = {
   display: "flex",
@@ -44,34 +43,32 @@ const CarouselArticles = () => (
           />
         </div>
         <div>
-          <img src={img2} alt="Image 2" style={imgStyle} />
+          <img
+            src={img2}
+            alt="Image 2"
+            style={{ ...imgStyle, objectPosition: "center 50%" }}
+          />
         </div>
         <div>
           <img
             src={img3}
             alt="Image 3"
-            style={{ ...imgStyle, objectPosition: "center 75%" }}
+            style={{ ...imgStyle, objectPosition: "center 20%" }}
           />
         </div>
         <div>
           <img
             src={img4}
             alt="Image 4"
-            style={{ ...imgStyle, objectPosition: "center 75%" }}
+            style={{ ...imgStyle, objectPosition: "center 70%" }}
           />
         </div>
+
         <div>
           <img
             src={img5}
             alt="Image 5"
             style={{ ...imgStyle, objectPosition: "center 50%" }}
-          />
-        </div>
-        <div>
-          <img
-            src={img6}
-            alt="Image 6"
-            style={{ ...imgStyle, objectPosition: "center 45%" }}
           />
         </div>
       </Carousel>
