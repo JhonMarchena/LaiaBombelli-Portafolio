@@ -39,7 +39,7 @@ function FashionShow() {
         <>
           <CarouselComponent>
             {images.map((img, index) => (
-              <div key={index} className="h-[76svh] md:h-[76svh]">
+              <div key={index} className="h-[76svh] md:h-[85vh] w-full">
                 <img
                   src={img}
                   alt={`Fashion Show ${index + 1}`}

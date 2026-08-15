@@ -2,10 +2,18 @@ import React, { useState } from "react";
 import { motion } from "motion/react";
 import { Button, Modal } from "antd";
 
-
-
 //MODAL GENERAL COMPONENTE
 export default function ModalComponent({ children, title, header }) {
+  const buttonStyle = {
+    initial: { opacity: 0, y: 10 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.4 },
+    whileHover: { scale: 1.05 },
+    whileTap: { scale: 0.95 },
+    className:
+      "flex justify-center items-center cursor-pointer border lg:h-8 lg:w-25 lg:mt-4 border-gray-500 shadow-lg rounded-full py-2 px-4 transition-colors hover:bg-gray-600 hover:text-white",
+  };
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const showModal = () => {
     setIsModalOpen(true);
@@ -22,53 +30,34 @@ export default function ModalComponent({ children, title, header }) {
   return (
     <>
       {/* see more button */}
-      <motion.button
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4 }}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        className="flex justify-center items-center cursor-pointer border w-[svw20] border-gray-500 shadow-lg rounded-full py-2 px-4 transition-colors hover:bg-gray-600 hover:text-white"
-        onClick={showModal}
-      >
-        <span>{title}</span>
+      <motion.button {...buttonStyle} onClick={showModal}>
+        <span className="text-sm font-medium">{title}</span>
       </motion.button>
 
       <Modal
         title={header}
-        closable={false}
         open={isModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}
+        closable={false}
         centered={true}
         width="60svw"
         height="90svh"
-        rootClassName="clean-modal"
-        footer={
-          <div className="flex justify-center">
-            <motion.button
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              key="close"
-              className="text-center cursor-pointer border border-gray-500 shadow-lg rounded-lg outline-none py-2 px-4 transition-colors hover:bg-gray-600 text-red-600 hover:text-white"
-              onClick={handleCancel}
-            >
-              <span>Close</span>
-            </motion.button>
-          </div>
-        }
-        destroyOnHidden
+        footer={null}
       >
-        {children}
+        <div className="flex flex-col justify-center items-center w-full h-full">
+          {children}
+
+          <motion.button {...buttonStyle} onClick={handleCancel}>
+            <span className="text-sm">Close</span>
+          </motion.button>
+        </div>
       </Modal>
     </>
   );
 }
 
-// Trocea la descripción por "-" y limpia espacios/vacíos
+// Trocea la descripción por "-" y limpia espacios/vacíos (MODAL BOLSOS)
 function formatDescription(description) {
   if (!description) return [];
   return description

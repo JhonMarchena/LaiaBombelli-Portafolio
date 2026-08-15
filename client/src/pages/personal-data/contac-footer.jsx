@@ -5,7 +5,7 @@ import { FaInstagram } from "react-icons/fa";
 
 function ContactFooter() {
   return (
-    <footer className="relative border-t-1 border-gray-300 flex min-h-[40svh] mt-8 shadow-lg items-center justify-center w-full flex-1 flex-col">
+    <footer className="relative border-t-1 border-gray-300 flex min-h-[30svh] mt-8 shadow-lg items-center justify-center w-full flex-1 flex-col">
       <div className="flex gap-x-4 p-4">
         <a
           href="https://www.linkedin.com/in/laia-bombelli-2b3416351/"

@@ -103,21 +103,20 @@ export function BagCarousel() {
           {items.map((bag, i) => (
             <motion.div
               key={`${bag.id}-${i}`}
-              onMouseEnter={() => setPaused(true)}
-              onMouseLeave={() => setPaused(false)}
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="flex-shrink-0 w-50 cursor-pointer"
+              className="flex-shrink-0 w-40 cursor-pointer"
               onClick={() => setSelectedBag(bag)}
             >
-              <div className="overflow-hidden rounded-2xl bg-transparent">
                 <img
                   src={bag.src}
                   alt={bag.name}
                   loading="lazy"
-                  className="h-55 w-full object-contain"
+                  className="h-55 w-full object-cover"
+                  onMouseEnter={() => setPaused(true)}
+                  onMouseLeave={() => setPaused(false)}
                 />
-              </div>
+              
             </motion.div>
           ))}
         </div>

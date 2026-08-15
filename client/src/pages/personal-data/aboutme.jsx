@@ -37,7 +37,6 @@ function AboutMe() {
               quality and innovation
             </span>
             .
-        <span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore nisi debitis libero vero nesciunt. Ad necessitatibus fuga quia nisi eum corporis. Dolorum corrupti, repudiandae consequuntur sequi magni.</span>
         </>
       }
     >
