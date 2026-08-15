@@ -19,42 +19,42 @@ const bags = [
     src: img1,
     name: "Bucket bag",
     description:
-      "Orange nubuck (suede). - Contrasting dark brown (testa di moro) smooth calfskin. - Union between the body and the base made with an ornamental cord and braided leather tubing. - Gold-finish buckles. - Dark brown calfskin handle, adjustable with a tongue buckle. - Front leather drawstring with structured loops.",
+      "Orange nubuck (suede). - Contrasting dark brown (testa di moro) smooth calfskin. - Union between the body and the base made with an ornamental cord and braided leather tubing. - Gold finish buckles.    - Dark brown calfskin handle, adjustable with a tongue buckle. - Front leather drawstring with structured loops.",
   },
   {
     id: 2,
     src: img2,
     name: "Bucket bag",
     description:
-      "- Smooth dark brown calfskin. - Decorative multicolor leather cords (red, orange, and beige) hanging from the panels through the eyelets. - Bag body characterized by a dense arrangement of circular metal eyelets, incorporated as functional elements for threading the cords; - Eyelets, rivets, and tongue buckle with gold finish; - Beige calfskin handle, adjustable with a tongue buckle",
+      "Smooth dark brown calfskin. - Decorative multicolor leather cords (red, orange, and beige) hanging from the panels through the eyelets. - Bag body characterized by a dense arrangement of circular metal eyelets, incorporated as functional elements for threading the cords. - Eyelets, rivets, and tongue buckle with gold finish. - Beige calfskin handle, adjustable with a tongue buckle.",
   },
   {
     id: 3,
     src: img3,
     name: "Hand Bag",
     description:
-      "Smooth calfskin leather in a testa di moro tone; - Contrasting thick beige stitching details along the side profiles; - Panels joined through an interweaving of leather tubing; - Metal eyelets with gold finish and cuoio-colored leather laces hanging on the sides; - Single handle in coordinated leather, adjustable with gold buckles; - Top closure with a gold-finish zipper.",
+      "Smooth calfskin leather in a (testa di moro) tone. - Contrasting thick beige stitching details along the side profiles. - Panels joined through an interweaving of leather tubing. - Metal eyelets with gold finish and cuoio-colored leather laces hanging on the sides. - Single handle in coordinated leather, adjustable with gold buckles. - Top closure with a goldfinish zipper.",
   },
   {
     id: 4,
     src: img4,
     name: "Hobo bag",
     description:
-      "Red nubuck (suede); - Contrasting dark brown smooth calfskin on the upper part; - Side union made with a cross-shaped ornamental cord and leather tubing joining the ends of the two panels; - Gold-finish buckles; - Dark brown calfskin handle, adjustable with a tongue buckle.",
+      "Red nubuck (suede). - Contrasting dark brown smooth calfskin on the upper part. - Side union made with a cross shaped ornamental cord and leather tubing joining the ends of the two panels. - Gold finish buckles. - Dark brown calfskin handle, adjustable with a tongue buckle.",
   },
   {
     id: 5,
     src: img5,
     name: "Hand bag",
     description:
-      "Smooth warm brown calfskin leather; - Wide fan-shaped top closure flap, made of fringed natural raffia; - Raffia panel featuring a radial arrangement of small knots; - Gold-finish piercing; - Single central handle, made of smooth calfskin leather; - Top closure with a wide flap.",
+      "Smooth warm brown calfskin leather. - Wide fan shaped top closure flap, made of fringed natural raffia. - Raffia panel featuring a radial arrangement of small knots. - Gold finish piercing. - Single central handle, made of smooth calfskin leather. - Top closure with a wide flap.",
   },
   {
     id: 6,
     src: img6,
     name: "Hobo bag",
     description:
-      "- Smooth dark brown calfskin; - Hanging fringes on the front and back panels, in two-tone leather (black and cuero); - Outer perimeter union made with a braided ornamental cord; - Loops with D-ring and fixing rivets on the handle, with gold finish; - Single dark brown calfskin handle.",
+      "Smooth dark brown calfskin. - Hanging fringes on the front and back panels, in two tone leather (black and cuero). - Outer perimeter union made with a braided ornamental cord. - Loops with D'ring and fixing rivets on the handle, with gold finish. - Single dark brown calfskin handle.",
   },
 ];
 
@@ -108,15 +108,14 @@ export function BagCarousel() {
               className="flex-shrink-0 w-40 cursor-pointer"
               onClick={() => setSelectedBag(bag)}
             >
-                <img
-                  src={bag.src}
-                  alt={bag.name}
-                  loading="lazy"
-                  className="h-55 w-full object-cover"
-                  onMouseEnter={() => setPaused(true)}
-                  onMouseLeave={() => setPaused(false)}
-                />
-              
+              <img
+                src={bag.src}
+                alt={bag.name}
+                loading="lazy"
+                className="h-55 w-full object-cover"
+                onMouseEnter={() => setPaused(true)}
+                onMouseLeave={() => setPaused(false)}
+              />
             </motion.div>
           ))}
         </div>

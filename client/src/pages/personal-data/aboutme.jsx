@@ -31,7 +31,15 @@ function AboutMe() {
             , and I love seeing how a raw concept evolves through research and{" "}
             <span className="font-bold text-black">hands-on prototyping</span>.
             Methodical and collaborative, I approach my work with a deep respect
-            for detail. I am now excited to start my professional journey and
+            for detail. My work often draws on{" "}
+            <span className="font-semibold text-black">
+              cultural heritage and personal narrative
+            </span>
+            , translating tradition into{" "}
+            <span className="font-semibold text-black">
+              contemporary, wearable forms
+            </span>
+            . I am now excited to start my professional journey and
             bring my dedication to a team that values{" "}
             <span className="font-semibold text-black">
               quality and innovation
