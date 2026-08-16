@@ -22,8 +22,8 @@ function Shooting() {
       <div
         className="
           flex flex-wrap justify-center gap-6 w-full max-w-[1600px] mx-auto
-          max-md:gap-4 max-md:px-6 max-md:py-14
-          max-sm:gap-3 max-sm:px-4 max-sm:py-10
+          max-md:gap-4  max-md:py-10
+          max-sm:gap-3  max-sm:py-8
         "
       >
         {images.map(({ src, alt, position }) => (
