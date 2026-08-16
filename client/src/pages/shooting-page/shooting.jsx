@@ -7,68 +7,37 @@ import img5 from "../../assets/articles-section/IMG_8024.webp";
 import img6 from "../../assets/articles-section/IMG_8023.webp";
 import ScrollReveal from "../../components/scrollReveal";
 
-const divStyle = "h-[90%] w-[30svw]";
-const imgStyle = {
-  width: "100%",
-  height: "75svh",
-  objectFit: "cover",
-  objectPosition: "center 35%", // valor por defecto
-  borderRadius: "none",
-  display: "block",
-};
+const images = [
+  { src: img1, alt: "Image 1", position: "center 50%" },
+  { src: img2, alt: "Image 2", position: "center 60%" },
+  { src: img3, alt: "Image 3", position: "center 15%" },
+  { src: img4, alt: "Image 4", position: "center 60%" },
+  { src: img5, alt: "Image 5", position: "center 10%" },
+  { src: img6, alt: "Image 6", position: "center 40%" },
+];
 
 function Shooting() {
   return (
     <ScrollReveal>
-      <div className="flex gap-y-6 grid py-2 grid-cols-3 place-items-center min-h-screen w-full justify-center items-center">
-        <div className={divStyle}>
-          <img
-            src={img1}
-            alt="Image 1"
-            decoding="async"
-            style={{ ...imgStyle, objectPosition: "center 50%" }}
-          />
-        </div>
-        <div className={divStyle}>
-          <img
-            src={img2}
-            alt="Image 2"
-            decoding="async"
-            style={{ ...imgStyle, objectPosition: "center 60%" }}
-          />
-        </div>
-        <div className={divStyle}>
-          <img
-            src={img3}
-            alt="Image 3"
-            decoding="async"
-            style={{ ...imgStyle, objectPosition: "center 15%" }}
-          />
-        </div>
-        <div className={divStyle}>
-          <img
-            src={img4}
-            alt="Image 4"
-            decoding="async"
-            style={{ ...imgStyle, objectPosition: "center 60%" }}
-          />
-        </div>
-        <div className={divStyle}>
-          <img
-            src={img5}
-            alt="Image 5"
-            decoding="async"
-            style={{ ...imgStyle, objectPosition: "center 10%" }}
-          />
-        </div>
-        <div className={divStyle}>
-          <img
-            src={img6}
-            alt="Image 6"
-            decoding="async"
-            style={{ ...imgStyle, objectPosition: "center 40%" }}
-          />
-        </div>
+      <div
+        className="
+          grid grid-cols-3 gap-6 w-full max-w-[1600px] mx-auto px-8 py-20
+          max-md:grid-cols-2 max-md:gap-4 max-md:px-6 max-md:py-14
+          max-sm:grid-cols-1 max-sm:gap-4 max-sm:px-4 max-sm:py-10
+        "
+      >
+        {images.map(({ src, alt, position }) => (
+          <div key={alt} className="w-full">
+            <img
+              src={src}
+              alt={alt}
+              decoding="async"
+              loading="lazy"
+              className="w-full aspect-[3/4] object-cover block"
+              style={{ objectPosition: position }}
+            />
+          </div>
+        ))}
       </div>
     </ScrollReveal>
   );
