@@ -18,7 +18,7 @@ const images = [
 
 function Shooting() {
   return (
-    <ScrollReveal>
+    
       <div
         className="
           grid grid-cols-3 gap-6 w-full max-w-[1600px] mx-auto px-8 py-20
@@ -39,7 +39,7 @@ function Shooting() {
           </div>
         ))}
       </div>
-    </ScrollReveal>
+  
   );
 }
 
