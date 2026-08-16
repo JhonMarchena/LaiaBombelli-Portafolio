@@ -18,28 +18,35 @@ const images = [
 
 function Shooting() {
   return (
-    
+    <ScrollReveal>
       <div
         className="
-          grid grid-cols-3 gap-6 w-full max-w-[1600px] mx-auto px-8 py-20
-          max-md:grid-cols-2 max-md:gap-4 max-md:px-6 max-md:py-14
-          max-sm:grid-cols-1 max-sm:gap-4 max-sm:px-4 max-sm:py-10
+          flex flex-wrap justify-center gap-6 w-full max-w-[1600px] mx-auto
+          max-md:gap-4 max-md:px-6 max-md:py-14
+          max-sm:gap-3 max-sm:px-4 max-sm:py-10
         "
       >
         {images.map(({ src, alt, position }) => (
-          <div key={alt} className="w-full">
+          <div
+            key={alt}
+            className="
+              w-[260px] h-[280px]
+              max-md:w-[200px] max-md:h-[220px]
+              max-sm:w-[150px] max-sm:h-[170px]
+            "
+          >
             <img
               src={src}
               alt={alt}
               decoding="async"
               loading="lazy"
-              className="w-full aspect-[3/4] object-cover block"
+              className="w-full h-full object-cover block"
               style={{ objectPosition: position }}
             />
           </div>
         ))}
       </div>
-  
+    </ScrollReveal>
   );
 }
 
