@@ -21,7 +21,7 @@ function Shooting() {
     <ScrollReveal>
       <div
         className="
-          flex flex-wrap justify-center gap-6 w-full max-w-[1600px] mx-auto
+          flex flex-wrap justify-center gap-6 w-full max-w-[1600px] mx-auto py-10
           max-md:gap-4  max-md:py-10
           max-sm:gap-3  max-sm:py-8
         "

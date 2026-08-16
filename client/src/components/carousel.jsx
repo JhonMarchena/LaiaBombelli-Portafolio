@@ -98,7 +98,7 @@ export function BagCarousel() {
 
   return (
     <>
-      <div className="w-full overflow-hidden py-8">
+      <div className="w-full overflow-hidden py-6">
         <div ref={trackRef} className="flex gap-6 w-max will-change-transform">
           {items.map((bag, i) => (
             <motion.div

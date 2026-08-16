@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import ModalComponent from "../../components/modal";
 import CarouselComponent from "../../components/carousel";
 import CardComponent from "../../components/card";
+import React, { useState } from "react";
 
 import img1 from "../../assets/fashion-show/fashionshow1.jpeg";
 import img2 from "../../assets/fashion-show/fashionshow2.jpeg";
@@ -15,6 +16,16 @@ import img9 from "../../assets/fashion-show/fashionshow9.jpeg";
 import img10 from "../../assets/fashion-show/fashionshow10.jpeg";
 
 const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10];
+
+const buttonStyle = {
+  initial: { opacity: 0, y: 10 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.4 },
+  whileHover: { scale: 1.05 },
+  whileTap: { scale: 0.95 },
+  className:
+    "flex justify-center items-center cursor-pointer border lg:h-8 lg:w-25 lg:mt-4 border-gray-500 shadow-lg rounded-full py-2 px-4 transition-colors hover:bg-gray-600 hover:text-white",
+};
 
 const links = [
   {
@@ -91,19 +102,19 @@ function FashionShow() {
       }
     >
       {/* see more button */}
-     
-        <ModalComponent title="See more">
-          <div className="relative w-full aspect-video">
-            <iframe
-              className="absolute top-0 left-0 w-full h-full"
-              src="https://www.youtube.com/embed/7W_UG8Dvtlo?si=OsK_YdEy-upeHWAV"
-              title="YouTube video"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            />
-          </div>
-        </ModalComponent>
-      
+
+      <motion.button {...buttonStyle}>
+        <span className="text-sm font-medium">
+          {" "}
+          <a
+            href="https://www.youtube.com/watch?v=7W_UG8Dvtlo"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            See more
+          </a>
+        </span>
+      </motion.button>
     </CardComponent>
   );
 }
