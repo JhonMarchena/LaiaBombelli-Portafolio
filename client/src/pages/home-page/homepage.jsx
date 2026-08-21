@@ -1,7 +1,6 @@
 import Navbar from "../../components/navbar";
 import { IconButton } from "../../components/buttons";
 import { ChevronDown } from "lucide-react";
-import videoHomeMp4 from "../../assets/home-page/video-homeMP.mp4";
 import { useEffect, useRef, useState } from "react";
 
 function HomePage() {
@@ -12,21 +11,15 @@ function HomePage() {
     const v = videoRef.current;
     if (!v) return;
 
-    // Si ya hay datos cuando monta (caché), marcamos listo
     if (v.readyState >= 2) setVideoReady(true);
 
-    // Intento explícito de play (iOS a veces ignora el atributo autoPlay)
-    v.play().catch(() => {
-      // Autoplay bloqueado (low power mode): mostramos igual el poster/frame
-      setVideoReady(true);
-    });
+    // iOS a veces ignora el atributo autoPlay en el primer render de una SPA
+    v.play().catch(() => setVideoReady(true));
 
-    // Red de seguridad: no dejar la pantalla en negro pase lo que pase
+    // Red de seguridad: nunca dejar la pantalla en negro permanente
     const timeout = setTimeout(() => setVideoReady(true), 2500);
     return () => clearTimeout(timeout);
   }, []);
-
-  const [debug, setDebug] = useState("init");
 
   return (
     <div className="relative flex min-h-screen w-full flex-1 flex-col">
@@ -40,24 +33,14 @@ function HomePage() {
           muted
           playsInline
           preload="auto"
-          onLoadedData={() => {
-            setVideoReady(true);
-            setDebug("loadeddata");
-          }}
-          onPlaying={() => {
-            setVideoReady(true);
-            setDebug("playing");
-          }}
-          onError={(e) => setDebug("ERROR: " + (e.target.error?.code ?? "?"))}
-          onStalled={() => setDebug("stalled")}
-          className="w-full h-full object-cover" // ← sin opacity, forzado visible
+          onLoadedData={() => setVideoReady(true)}
+          onPlaying={() => setVideoReady(true)}
+          className={`h-full w-full object-cover transition-opacity duration-700 ${
+            videoReady ? "opacity-100" : "opacity-0"
+          }`}
         >
-          <source src={videoHomeMp4} type="video/mp4" />
+          <source src="/video-homeMP.mp4" type="video/mp4" />
         </video>
-
-        <div className="absolute top-4 left-4 z-50 bg-red-600 text-white text-xs p-2">
-          {debug}
-        </div>
 
         <IconButton style="absolute bottom-2 left-1/2 -translate-x-1/2 z-10">
           <ChevronDown color="white" size={24} />
