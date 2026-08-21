@@ -26,6 +26,8 @@ function HomePage() {
     return () => clearTimeout(timeout);
   }, []);
 
+  const [debug, setDebug] = useState("init");
+
   return (
     <div className="relative flex min-h-screen w-full flex-1 flex-col">
       <Navbar />
@@ -38,14 +40,24 @@ function HomePage() {
           muted
           playsInline
           preload="auto"
-          onLoadedData={() => setVideoReady(true)}
-          onPlaying={() => setVideoReady(true)}
-          className={`h-full w-full object-cover transition-opacity duration-700 ${
-            videoReady ? "opacity-100" : "opacity-0"
-          }`}
+          onLoadedData={() => {
+            setVideoReady(true);
+            setDebug("loadeddata");
+          }}
+          onPlaying={() => {
+            setVideoReady(true);
+            setDebug("playing");
+          }}
+          onError={(e) => setDebug("ERROR: " + (e.target.error?.code ?? "?"))}
+          onStalled={() => setDebug("stalled")}
+          className="w-full h-full object-cover" // ← sin opacity, forzado visible
         >
           <source src={videoHomeMp4} type="video/mp4" />
         </video>
+
+        <div className="absolute top-4 left-4 z-50 bg-red-600 text-white text-xs p-2">
+          {debug}
+        </div>
 
         <IconButton style="absolute bottom-2 left-1/2 -translate-x-1/2 z-10">
           <ChevronDown color="white" size={24} />
