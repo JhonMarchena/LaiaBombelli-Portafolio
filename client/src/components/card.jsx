@@ -1,23 +1,65 @@
 function CardComponent({ image, title, text, children }) {
   return (
-    <div className="flex flex-col min-h-screen w-full justify-center items-center px-4 py-8">
-      <div className="flex flex-col md:flex-row w-full max-w-4xl rounded-xl border border-gray-200 shadow-lg overflow-hidden bg-white md:h-[85vh]">
-        
+    <div
+      className="
+        flex flex-col w-full justify-center items-center
+        min-h-fit px-4 py-10
+        md:min-h-[85svh] md:px-6 md:py-12
+        lg:min-h-[100svh] lg:px-8 lg:py-8
+      "
+    >
+      <div
+        className="
+          flex flex-col w-full overflow-hidden bg-white
+          rounded-xl border border-gray-200 shadow-lg
+          max-w-md
+          md:max-w-2xl
+          lg:flex-row lg:max-w-4xl lg:h-[85svh]
+        "
+      >
         {/* Imagen */}
-        <div className="w-full md:w-1/3 h-56 sm:h-64 md:h-full">
-          <div className="w-full h-full">{image}</div>
+        {/* Imagen */}
+        <div
+          className="
+          w-full shrink-0 overflow-hidden
+          aspect-[4/5] max-h-[55svh]
+          md:aspect-[16/10] md:max-h-[45svh]
+          lg:w-1/3 lg:aspect-auto lg:max-h-none lg:h-full
+          "
+        >
+          <div className="w-full h-full [&_img]:w-full [&_img]:h-full [&_img]:object-cover">
+            {image}
+          </div>
         </div>
 
         {/* Contenido */}
-        <div className="w-full md:w-2/3 flex flex-col items-center justify-center px-6 py-8 md:px-10 md:py-10 gap-y-4 md:h-full">
-          
-          {/* Título */}
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-center tracking-[0.2em] uppercase text-gray-900">
+        <div
+          className="
+            w-full flex flex-col items-center justify-center
+            px-6 py-8 gap-y-4
+            md:px-10 md:py-10 md:gap-y-5
+            lg:w-2/3 lg:h-full lg:px-12
+          "
+        >
+          <h1
+            className="
+              font-bold text-center uppercase text-gray-900
+              text-xl tracking-[0.15em]
+              md:text-2xl md:tracking-[0.2em]
+              lg:text-3xl
+            "
+          >
             {title}
           </h1>
 
-          {/* Texto */}
-          <p className="text-sm leading-relaxed tracking-wide text-gray-500 text-center md:text-justify max-w-lg">
+          <p
+            className="
+              text-gray-500 leading-relaxed tracking-wide
+              text-sm text-center max-w-prose
+              md:text-base
+              lg:text-sm lg:text-justify
+            "
+          >
             {text}
           </p>
 

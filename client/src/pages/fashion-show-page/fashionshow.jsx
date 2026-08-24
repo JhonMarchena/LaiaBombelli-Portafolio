@@ -1,8 +1,6 @@
 import { motion } from "motion/react";
-import ModalComponent from "../../components/modal";
 import CarouselComponent from "../../components/carousel";
 import CardComponent from "../../components/card";
-import React, { useState } from "react";
 
 import img1 from "../../assets/fashion-show/fashionshow1.jpeg";
 import img2 from "../../assets/fashion-show/fashionshow2.jpeg";
@@ -47,19 +45,18 @@ function FashionShow() {
     <CardComponent
       title="Fashion Show"
       image={
-        <>
-          <CarouselComponent>
-            {images.map((img, index) => (
-              <div key={index} className="h-[76svh] md:h-[85vh] w-full">
-                <img
-                  src={img}
-                  alt={`Fashion Show ${index + 1}`}
-                  className="w-full h-full object-cover shadow-xl object-[center_60%]"
-                />
-              </div>
-            ))}
-          </CarouselComponent>
-        </>
+        <CarouselComponent>
+          {images.map((img, index) => (
+            <div key={index} className="h-full w-full">
+              <img
+                src={img}
+                alt={`Fashion Show ${index + 1}`}
+                loading={index === 0 ? "eager" : "lazy"}
+                className="w-full h-full object-cover object-[center_35%] md:object-[center_50%] lg:object-[center_60%]"
+              />
+            </div>
+          ))}
+        </CarouselComponent>
       }
       text={
         <>
@@ -105,7 +102,6 @@ function FashionShow() {
 
       <motion.button {...buttonStyle}>
         <span className="text-sm font-medium">
-          {" "}
           <a
             href="https://www.youtube.com/watch?v=7W_UG8Dvtlo"
             target="_blank"

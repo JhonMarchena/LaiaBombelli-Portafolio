@@ -58,15 +58,24 @@ const bags = [
   },
 ];
 
-//CARRUSEL COMPONENTE GENERAL
-export default function CarouselComponent({ children }) {
+export default function CarouselComponent({ children, className = "" }) {
   return (
     <Carousel
       autoplay
       autoplaySpeed={3000}
-      dots={true}
+      dots
       effect="fade"
-      className="h-full"
+      className={`
+        h-full
+        [&_.slick-list]:!h-full
+        [&_.slick-track]:!h-full
+        [&_.slick-slide]:!h-full
+        [&_.slick-slide>div]:!h-full
+        [&_.slick-dots]:!bottom-3
+        [&_.slick-dots_li_button]:!bg-white/70
+        [&_.slick-dots_li.slick-active_button]:!bg-white
+        ${className}
+      `}
     >
       {children}
     </Carousel>
