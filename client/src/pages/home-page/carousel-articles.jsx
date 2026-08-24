@@ -20,8 +20,8 @@ const CarouselArticles = () => (
   <div
     className="
       flex items-center justify-center box-border
-      py-10 px-4
-      md:min-h-[85svh] md:py-12 md:px-6
+      py-8 px-4
+      md:min-h-[85svh] md:py-10 md:px-6
       lg:min-h-[100svh] lg:p-6
     "
   >
