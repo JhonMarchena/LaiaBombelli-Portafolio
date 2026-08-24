@@ -83,7 +83,7 @@ export default function ModalComponent({ children, title, header }) {
 
           {/* Información */}
           <div className="flex flex-col justify-center">
-            <h2 className="text-2xl font-bold uppercase">{bag.name}</h2>
+            <h2 className="text-[1rem] lg:text-[1.2rem] uppercase">{bag.name}</h2>
 
             {formatDescription(bag.description).length > 0 && (
               <ul className="space-y-1 text-sm leading-relaxed text-gray-500 list-disc list-inside pt-2 pr-2">

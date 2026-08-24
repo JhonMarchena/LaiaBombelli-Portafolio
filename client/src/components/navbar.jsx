@@ -11,7 +11,7 @@ function Navbar({ children }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          Laia Bombelli
+          <span className="font-bold text-[0.75rem] md:text-[1rem] lg:text-[1rem]"> Laia Bombelli</span>
         </motion.h1> 
         {/*DIV PARA TENER ESPACIO*/}
         <div></div>
