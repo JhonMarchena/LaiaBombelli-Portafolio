@@ -28,7 +28,7 @@ const CarouselArticles = () => (
     <div className="w-full max-w-[1200px]">
       <Carousel
         autoplay
-        autoplaySpeed={3000}
+        autoplaySpeed={2000}
         dots
         effect="fade"
         className="[&_.slick-slide]:!overflow-hidden [&_.slick-dots]:!bottom-4"
@@ -42,7 +42,7 @@ const CarouselArticles = () => (
               style={{ "--pos-sm": sm, "--pos-md": md, "--pos-lg": lg }}
               className="
                 block w-full object-cover
-                aspect-[2/3] max-h-[70svh] h-auto object-[center_var(--pos-sm)]
+                aspect-[2/8] max-h-[90svh] h-auto object-[center_var(--pos-sm)]
                 md:aspect-[4/3] md:max-h-none md:rounded-xl md:object-[center_var(--pos-md)]
                 lg:aspect-auto lg:h-[90svh] lg:rounded-none lg:object-[center_var(--pos-lg)]
               "
