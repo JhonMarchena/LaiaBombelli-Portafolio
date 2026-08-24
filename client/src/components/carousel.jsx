@@ -107,21 +107,24 @@ export function BagCarousel() {
 
   return (
     <>
-      <div className="w-full overflow-hidden py-6">
-        <div ref={trackRef} className="flex gap-6 w-max will-change-transform">
+      <div className="w-full overflow-hidden py-6 md:py-8 lg:py-10">
+        <div
+          className="flex gap-3 md:gap-4 lg:gap-6 w-max will-change-transform"
+          ref={trackRef}
+        >
           {items.map((bag, i) => (
             <motion.div
               key={`${bag.id}-${i}`}
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="flex-shrink-0 w-40 cursor-pointer"
+              className="flex-shrink-0 w-32 md:w-36 lg:w-40 cursor-pointer"
               onClick={() => setSelectedBag(bag)}
             >
               <img
                 src={bag.src}
                 alt={bag.name}
                 loading="lazy"
-                className="h-55 w-full object-cover"
+                className="w-full aspect-[3/4] lg:aspect-[4/5] object-cover"
                 onMouseEnter={() => setPaused(true)}
                 onMouseLeave={() => setPaused(false)}
               />

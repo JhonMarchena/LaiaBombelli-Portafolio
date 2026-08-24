@@ -72,28 +72,34 @@ export default function ModalComponent({ children, title, header }) {
     if (!bag) return null;
 
     return (
-      <Modal open={open} onCancel={onClose} footer={null} centered width={720}>
-        <div className="flex flex-col md:flex-row gap-6">
-          {/* Imagen */}
-          <img
-            src={bag.src}
-            alt={bag.name}
-            className="w-full md:w-1/2 h-80 object-cover rounded-xl"
-          />
+          <Modal
+      open={open}
+      onCancel={onClose}
+      footer={null}
+      centered
+      width="min(92vw, 720px)"
+    >
+      <div className="flex flex-col md:flex-row gap-4 md:gap-6">
+        {/* Imagen */}
+        <img
+          src={bag.src}
+          alt={bag.name}
+          className="w-full aspect-[4/5] max-h-[38svh] md:w-1/2 md:aspect-auto md:max-h-none md:h-72 lg:h-80 object-contain rounded-xl"
+        />
 
-          {/* Información */}
-          <div className="flex flex-col justify-center">
-            <h2 className="text-[1rem] lg:text-[1.2rem] uppercase">{bag.name}</h2>
+        {/* Información */}
+        <div className="flex flex-col justify-center">
+          <h2 className="text-[1rem] lg:text-[1.25rem] uppercase">{bag.name}</h2>
 
-            {formatDescription(bag.description).length > 0 && (
-              <ul className="space-y-1 text-sm leading-relaxed text-gray-500 list-disc list-inside pt-2 pr-2">
-                {formatDescription(bag.description).map((item, i) => (
-                  <li key={i}>{item}</li>
-                ))}
-              </ul>
-            )}
-          </div>
+          {formatDescription(bag.description).length > 0 && (
+            <ul className="space-y-1 text-[0.6rem] mb:text-[0.75rem] lg:text-[0.8rem] leading-relaxed text-gray-500 list-disc list-inside pt-2 pr-2">
+              {formatDescription(bag.description).map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
+            </ul>
+          )}
         </div>
-      </Modal>
+      </div>
+    </Modal>
     );
   }

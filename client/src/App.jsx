@@ -27,11 +27,11 @@ function App() {
       <section id="fashion-show">
         <FashionShow />
       </section>
-      <section id="shooting">
+      {/* <section id="shooting">
         <ScrollReveal>
           <Shooting />
         </ScrollReveal>
-      </section>
+      </section> */}
       <section id="about-me">
         <ScrollReveal>
           <AboutMe />
