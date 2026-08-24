@@ -92,7 +92,7 @@ export default function ModalComponent({ children, title, header }) {
           <h2 className="text-[1rem] lg:text-[1.25rem] uppercase">{bag.name}</h2>
 
           {formatDescription(bag.description).length > 0 && (
-            <ul className="space-y-1 text-[0.6rem] mb:text-[0.75rem] lg:text-[0.8rem] leading-relaxed text-gray-500 list-disc list-inside pt-2 pr-2">
+            <ul className="space-y-1 text-[0.75rem] mb:text-[0.8rem] lg:text-[0.8rem] leading-relaxed text-gray-500 list-disc list-inside pt-2 pr-2">
               {formatDescription(bag.description).map((item, i) => (
                 <li key={i}>{item}</li>
               ))}
