@@ -1,38 +1,44 @@
 import React from "react";
-import { FaLinkedin } from "react-icons/fa";
+import { FaLinkedin, FaInstagram } from "react-icons/fa";
 import { BiLogoGmail } from "react-icons/bi";
-import { FaInstagram } from "react-icons/fa";
 
 function ContactFooter() {
+  const iconClass =
+    "text-gray-600 transition-transform duration-300 hover:scale-125 hover:text-black text-lg md:text-xl lg:text-2xl";
+
   return (
-    <footer className="relative border-t-1 border-gray-300 flex min-h-[30svh] mt-8 shadow-lg items-center justify-center w-full flex-1 flex-col">
-      <div className="flex gap-x-4 p-4">
+    <footer className="relative w-full border-t border-gray-300 shadow-lg flex flex-col items-center justify-center text-center min-h-[12svh] md:min-h-[15svh] lg:min-h-[18svh] mt-6 md:mt-8 px-4 py-4 md:py-5 lg:py-6">
+      <div className="flex gap-x-5 md:gap-x-4 lg:gap-x-5 pb-2 md:pb-3">
         <a
           href="https://www.linkedin.com/in/laia-bombelli-2b3416351/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-600 transition-transform duration-300 hover:scale-125 hover:text-black"
+          aria-label="LinkedIn"
+          className={iconClass}
         >
-          <FaLinkedin size={30} />
+          <FaLinkedin />
         </a>
         <a
           href="mailto:laiabombelli@gmail.com"
-          className="text-gray-600 transition-transform duration-200 hover:scale-125 hover:text-black"
+          aria-label="Email"
+          className={iconClass}
         >
-          <BiLogoGmail size={30} />
+          <BiLogoGmail />
         </a>
-
         <a
           href="https://www.instagram.com/laiabbr/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-600 transition-transform duration-200 hover:scale-125 hover:text-black"
+          aria-label="Instagram"
+          className={iconClass}
         >
-          <FaInstagram size={30} />
+          <FaInstagram />
         </a>
       </div>
 
-      <p className="text-gray-700 ">© 2026 Laia Bombelli. All Rigths reserved.</p>
+      <p className="text-gray-700 text-[10px] md:text-xs lg:text-sm">
+        © 2026 Laia Bombelli. All rights reserved.
+      </p>
     </footer>
   );
 }

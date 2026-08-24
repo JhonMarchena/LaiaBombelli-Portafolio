@@ -4,6 +4,7 @@ import CardComponent from "../../components/card";
 function AboutMe() {
   return (
     <CardComponent
+      flexDirection="flex-row-reverse"
       title="About Me"
       image={
         <>

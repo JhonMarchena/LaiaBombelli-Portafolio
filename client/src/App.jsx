@@ -1,7 +1,5 @@
-import React from "react";
 import MainLayout from "./components/mainLayout.jsx";
 import ScrollReveal from "./components/scrollReveal.jsx";
-import { BagCarousel } from "./components/carousel.jsx";
 
 //PAGES IMPORT
 import HomePage from "./pages/home-page/homepage.jsx";
@@ -10,7 +8,6 @@ import Articles from "./pages/articles-page/articles-slide.jsx";
 import FashionShow from "./pages/fashion-show-page/fashionshow.jsx";
 import AboutMe from "./pages/personal-data/aboutme.jsx";
 import ContactFooter from "./pages/personal-data/contac-footer.jsx";
-import Shooting from "./pages/shooting-page/shooting.jsx";
 
 function App() {
   return (
@@ -21,17 +18,13 @@ function App() {
       <section id="carousel-articles">
         <CarouselArticles />
       </section>
-      <section id="articles">
-        <Articles />
-      </section>
+     
       <section id="fashion-show">
         <FashionShow />
       </section>
-      {/* <section id="shooting">
-        <ScrollReveal>
-          <Shooting />
-        </ScrollReveal>
-      </section> */}
+       <section id="articles">
+        <Articles />
+      </section>
       <section id="about-me">
         <ScrollReveal>
           <AboutMe />

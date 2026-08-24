@@ -1,4 +1,4 @@
-function CardComponent({ image, title, text, children }) {
+function CardComponent({ image, title, text, children, flexDirection = "lg:flex-row" }) {
   return (
     <div
       className="
@@ -9,15 +9,14 @@ function CardComponent({ image, title, text, children }) {
       "
     >
       <div
-        className="
+        className={`
           flex flex-col w-full overflow-hidden bg-white
           rounded-xl border border-gray-200 shadow-lg
           max-w-md
           md:max-w-2xl
-          lg:flex-row lg:max-w-4xl lg:h-[85svh]
-        "
+          lg:max-w-4xl lg:h-[85svh] ${flexDirection}  
+        `}
       >
-        {/* Imagen */}
         {/* Imagen */}
         <div
           className="

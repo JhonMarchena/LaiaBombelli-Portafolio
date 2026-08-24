@@ -1,18 +1,19 @@
-import React from "react";
 import { Carousel } from "antd";
 
-import img1 from "../../assets/carousel-section/IMG_7964.webp";
-import img2 from "../../assets/carousel-section/IMG_7975.webp";
-import img3 from "../../assets/carousel-section/IMG_7965.webp";
-import img4 from "../../assets/carousel-section/IMG_8019.webp";
-import img5 from "../../assets/carousel-section/IMG_7938.webp";
+import img1 from "../../assets/carousel-section/IMG_7929.webp"
+import img2 from "../../assets/carousel-section/IMG_7944.webp"
+import img3 from "../../assets/carousel-section/IMG_7972.webp"
+import img4 from "../../assets/carousel-section/IMG_8024.webp"
+import img5 from "../../assets/carousel-section/IMG_8027.webp"
+import img6 from "../../assets/carousel-section/IMG_8028.webp"
 
 const slides = [
   { src: img1, alt: "Image 1", sm: "40%", md: "50%", lg: "60%" },
   { src: img2, alt: "Image 2", sm: "30%", md: "40%", lg: "50%" },
-  { src: img3, alt: "Image 3", sm: "20%", md: "20%", lg: "20%" },
-  { src: img4, alt: "Image 4", sm: "55%", md: "60%", lg: "70%" },
-  { src: img5, alt: "Image 5", sm: "45%", md: "50%", lg: "50%" },
+  { src: img3, alt: "Image 3", sm: "40%", md: "50%", lg: "60%" },
+  { src: img4, alt: "Image 4", sm: "30%", md: "40%", lg: "50%" },
+  { src: img5, alt: "Image 5", sm: "40%", md: "50%", lg: "60%" },
+  { src: img6, alt: "Image 6", sm: "30%", md: "40%", lg: "50%" },
 ];
 
 const CarouselArticles = () => (
