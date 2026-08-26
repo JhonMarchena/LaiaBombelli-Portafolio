@@ -66,16 +66,14 @@ export default function CarouselComponent({ children, className = "" }) {
       dots
       effect="fade"
       className={`
-        h-full
-        [&_.slick-list]:!h-full
-        [&_.slick-track]:!h-full
-        [&_.slick-slide]:!h-full
-        [&_.slick-slide>div]:!h-full
-        [&_.slick-dots]:!bottom-3
-        [&_.slick-dots_li_button]:!bg-white/70
-        [&_.slick-dots_li.slick-active_button]:!bg-white
-        ${className}
-      `}
+      h-full
+      [&_.slick-list]:!h-full
+      [&_.slick-track]:!h-full
+      [&_.slick-dots]:!bottom-3
+      [&_.slick-dots_li_button]:!bg-white/70
+      [&_.slick-dots_li.slick-active_button]:!bg-white
+      ${className}
+`}
     >
       {children}
     </Carousel>

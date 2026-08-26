@@ -1,4 +1,10 @@
-function CardComponent({ image, title, text, children, flexDirection = "lg:flex-row" }) {
+function CardComponent({
+  image,
+  title,
+  text,
+  children,
+  flexDirection = "lg:flex-row",
+}) {
   return (
     <div
       className="
@@ -21,12 +27,12 @@ function CardComponent({ image, title, text, children, flexDirection = "lg:flex-
         <div
           className="
           w-full shrink-0 overflow-hidden
-          aspect-[4/5] max-h-[55svh]
+          aspect-[3/3] max-h-[55svh]
           md:aspect-[16/10] md:max-h-[45svh]
-          lg:w-1/3 lg:aspect-auto lg:max-h-none lg:h-full
+          lg:w-1/3 lg:aspect-auto lg:max-h-full lg:h-full
           "
         >
-          <div className="w-full h-full [&_img]:w-full [&_img]:h-full [&_img]:object-cover">
+          <div className="w-full shrink-0 overflow-hidden lg:w-full lg:h-full">
             {image}
           </div>
         </div>

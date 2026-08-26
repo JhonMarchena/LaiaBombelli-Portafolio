@@ -14,14 +14,15 @@ import h2 from "../../assets/carousel-section/horizontal/2H.webp";
 import h3 from "../../assets/carousel-section/horizontal/3H.webp";
 import h4 from "../../assets/carousel-section/horizontal/4H.webp";
 import h5 from "../../assets/carousel-section/horizontal/5H.webp";
+import h6 from "../../assets/carousel-section/horizontal/6H.webp";
 
 const slides = [
-  { alt: "Image 1", portrait: v1, landscape: h1, sm: "40%", md: "50%", lg: "60%" },
-  { alt: "Image 2", portrait: v2, landscape: h2, sm: "30%", md: "40%", lg: "50%" },
-  { alt: "Image 3", portrait: v3, landscape: h3, sm: "40%", md: "50%", lg: "60%" },
-  { alt: "Image 4", portrait: v4, landscape: h4, sm: "30%", md: "40%", lg: "50%" },
-  { alt: "Image 5", portrait: v5, landscape: h5, sm: "40%", md: "50%", lg: "60%" },
-  { alt: "Image 6", portrait: v6, landscape: null, sm: "30%", md: "40%", lg: "50%" },
+  { alt: "Image 1", portrait: v1, landscape: h1, sm: "40%", md: "50%", lg: "55%" },
+  { alt: "Image 2", portrait: v2, landscape: h2, sm: "30%", md: "40%", lg: "20%" },
+  { alt: "Image 3", portrait: v3, landscape: h3, sm: "40%", md: "50%", lg: "100%" },
+  { alt: "Image 4", portrait: v4, landscape: h4, sm: "30%", md: "40%", lg: "40%" },
+  { alt: "Image 5", portrait: v5, landscape: h5, sm: "40%", md: "50%", lg: "45%" },
+  { alt: "Image 6", portrait: v6, landscape: h6, sm: "30%", md: "40%", lg: "60%" },
 ];
 
 const CarouselArticles = () => (
@@ -57,7 +58,7 @@ const CarouselArticles = () => (
                   block w-full object-cover
                   aspect-[2/3] max-h-[80svh] object-[center_var(--pos-sm)]
                   md:aspect-[3/4] md:max-h-[80svh] md:rounded-xl md:object-[center_var(--pos-md)]
-                  lg:aspect-[16/9] lg:max-h-none lg:rounded-none lg:object-[center_var(--pos-lg)]
+                  lg:aspect-auto lg:max-h-[95svh] lg:rounded-none lg:object-cover lg:object-[center_var(--pos-lg)]
                 "
               />
             </picture>

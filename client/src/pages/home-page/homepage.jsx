@@ -31,7 +31,6 @@ function HomePage() {
           autoPlay
           loop
           muted
-          playsInline
           preload="auto"
           onLoadedData={() => setVideoReady(true)}
           onPlaying={() => setVideoReady(true)}

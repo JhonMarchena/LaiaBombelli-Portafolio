@@ -13,7 +13,18 @@ import img8 from "../../assets/fashion-show/fashionshow8.jpeg";
 import img9 from "../../assets/fashion-show/fashionshow9.jpeg";
 import img10 from "../../assets/fashion-show/fashionshow10.jpeg";
 
-const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10];
+const images = [
+  { src: img1, pos: "80%" }, // bolso naranja abajo → mucho %
+  { src: img2, pos: "80%" },
+  { src: img3, pos: "80%" },
+  { src: img4, pos: "80%" },
+  { src: img5, pos: "80%" },
+  { src: img6, pos: "80%" },
+  { src: img7, pos: "80%" },
+  { src: img8, pos: "80%" },
+  { src: img9, pos: "80%" },
+  { src: img10, pos: "40%" },
+];
 
 const buttonStyle = {
   initial: { opacity: 0, y: 10 },
@@ -47,12 +58,16 @@ function FashionShow() {
       image={
         <CarouselComponent>
           {images.map((img, index) => (
-            <div key={index} className="h-full w-full">
+            <div
+              key={index}
+              className="relative w-full aspect-[4/3] md:aspect-[16/10] lg:aspect-auto lg:h-[85svh]"
+            >
               <img
-                src={img}
+                src={img.src}
                 alt={`Fashion Show ${index + 1}`}
                 loading={index === 0 ? "eager" : "lazy"}
-                className="w-full h-full object-cover object-[center_35%] md:object-[center_50%] lg:object-[center_60%]"
+                style={{ objectPosition: "center 70%" }}
+                className="absolute inset-0 w-full h-full object-cover"
               />
             </div>
           ))}
