@@ -18,11 +18,11 @@ function App() {
       <section id="carousel-articles">
         <CarouselArticles />
       </section>
-      <section id="articles">
-        <Articles />
-      </section>
       <section id="fashion-show">
         <FashionShow />
+      </section>
+      <section id="articles">
+        <Articles />
       </section>
       <section id="about-me">
         <ScrollReveal>
