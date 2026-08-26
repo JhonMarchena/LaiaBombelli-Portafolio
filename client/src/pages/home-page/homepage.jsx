@@ -39,7 +39,7 @@ function HomePage() {
             videoReady ? "opacity-100" : "opacity-0"
           }`}
         >
-          <source src="/video-homeMP.mp4" type="video/mp4" />
+          <source src="/video-homeVT.mp4" type="video/mp4" />
         </video>
 
         <IconButton style="absolute bottom-2 left-1/2 -translate-x-1/2 z-10">
