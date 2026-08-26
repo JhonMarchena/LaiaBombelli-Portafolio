@@ -30,11 +30,12 @@ function HomePage() {
           ref={videoRef}
           autoPlay
           loop
+          playsInline
           muted
           preload="auto"
           onLoadedData={() => setVideoReady(true)}
           onPlaying={() => setVideoReady(true)}
-          className={`h-full w-full object-cover transition-opacity duration-700 ${
+          className={`h-full w-full object-cover transition-opacity duration-400 ${
             videoReady ? "opacity-100" : "opacity-0"
           }`}
         >
