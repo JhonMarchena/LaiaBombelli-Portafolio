@@ -17,9 +17,9 @@ import h5 from "../../assets/carousel-section/horizontal/5H.webp";
 import h6 from "../../assets/carousel-section/horizontal/6H.webp";
 
 const slides = [
-  { alt: "Image 1", portrait: v1, landscape: h1, sm: "40%", md: "50%", lg: "55%" },
-  { alt: "Image 2", portrait: v2, landscape: h2, sm: "30%", md: "40%", lg: "20%" },
-  { alt: "Image 3", portrait: v3, landscape: h3, sm: "40%", md: "50%", lg: "100%" },
+  { alt: "Image 1", portrait: v1, landscape: h1, sm: "40%", md: "50%", lg: "55%" }, 
+  { alt: "Image 2", portrait: v2, landscape: h2, sm: "30%", md: "40%", lg: "20%" }, 
+  { alt: "Image 3", portrait: v3, landscape: h3, sm: "40%", md: "50%", lg: "100%" }, // 3 - 6
   { alt: "Image 4", portrait: v4, landscape: h4, sm: "30%", md: "40%", lg: "40%" },
   { alt: "Image 5", portrait: v5, landscape: h5, sm: "40%", md: "50%", lg: "45%" },
   { alt: "Image 6", portrait: v6, landscape: h6, sm: "30%", md: "40%", lg: "60%" },

@@ -14,16 +14,16 @@ import img9 from "../../assets/fashion-show/fashionshow9.jpeg";
 import img10 from "../../assets/fashion-show/fashionshow10.jpeg";
 
 const images = [
-  { src: img1, pos: "80%" }, // bolso naranja abajo → mucho %
-  { src: img2, pos: "80%" },
-  { src: img3, pos: "80%" },
-  { src: img4, pos: "80%" },
-  { src: img5, pos: "80%" },
-  { src: img6, pos: "80%" },
-  { src: img7, pos: "80%" },
+  { src: img1, pos: "20%" }, // bolso naranja abajo → mucho %
+  { src: img2, pos: "90%" },
+  { src: img3, pos: "20%" },
+  { src: img4, pos: "75%" },
+  { src: img5, pos: "20%" },
+  { src: img6, pos: "60%" },
+  { src: img7, pos: "20%" },
   { src: img8, pos: "80%" },
-  { src: img9, pos: "80%" },
-  { src: img10, pos: "40%" },
+  { src: img9, pos: "20%" },
+  { src: img10, pos: "90%" },
 ];
 
 const buttonStyle = {
@@ -60,13 +60,13 @@ function FashionShow() {
           {images.map((img, index) => (
             <div
               key={index}
-              className="relative w-full aspect-[4/3] md:aspect-[16/10] lg:aspect-auto lg:h-[85svh]"
+              className="relative w-full aspect-[4/4] md:aspect-[16/10] lg:aspect-auto lg:h-[85svh]"
             >
               <img
                 src={img.src}
                 alt={`Fashion Show ${index + 1}`}
                 loading={index === 0 ? "eager" : "lazy"}
-                style={{ objectPosition: "center 70%" }}
+                style={{ objectPosition: `center ${img.pos}` }}
                 className="absolute inset-0 w-full h-full object-cover"
               />
             </div>

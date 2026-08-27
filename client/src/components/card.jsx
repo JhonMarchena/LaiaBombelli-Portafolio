@@ -32,7 +32,7 @@ function CardComponent({
           lg:w-1/3 lg:aspect-auto lg:max-h-full lg:h-full
           "
         >
-          <div className="w-full shrink-0 overflow-hidden lg:w-full lg:h-full">
+          <div className="relative w-full h-full shrink-0 overflow-hidden">
             {image}
           </div>
         </div>
