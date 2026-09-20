@@ -1,6 +1,6 @@
 import MainLayout from "./components/mainLayout.jsx";
 import ScrollReveal from "./components/scrollReveal.jsx";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/react"
 
 //PAGES IMPORT
 import HomePage from "./pages/home-page/homepage.jsx";
