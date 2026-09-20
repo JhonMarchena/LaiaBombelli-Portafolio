@@ -1,5 +1,6 @@
 import MainLayout from "./components/mainLayout.jsx";
 import ScrollReveal from "./components/scrollReveal.jsx";
+import { Analytics } from "@vercel/analytics/next"
 
 //PAGES IMPORT
 import HomePage from "./pages/home-page/homepage.jsx";
@@ -12,6 +13,7 @@ import ContactFooter from "./pages/personal-data/contac-footer.jsx";
 function App() {
   return (
     <MainLayout>
+      <Analytics />
       <section id="home">
         <HomePage />
       </section>
