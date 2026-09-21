@@ -26,10 +26,10 @@ export default function Portfolio() {
       aria-labelledby="portfolio-title"
       className="mx-auto w-full max-w-5xl px-4 py-16 md:px-8 md:py-20 lg:py-24"
     >
-      <header className="mb-6 flex items-end justify-between gap-4 md:mb-10">
+      <header className="mb-4 flex items-end justify-between gap-4 md:mb-10">
         <h2
           id="portfolio-title"
-          className="text-2xl tracking-tight md:text-3xl lg:text-4xl"
+          className="text-2xl tracking-tight md:text-3xl lg:text-4xl lowercase"
         >
           Portfolio
         </h2>
@@ -43,7 +43,7 @@ export default function Portfolio() {
             focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4
           "
         >
-          Descargar PDF
+          Download PDF
         </a>
       </header>
 
