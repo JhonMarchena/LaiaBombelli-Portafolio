@@ -65,6 +65,7 @@ function MenuHamburguesa() {
           <Item onClick={() => scrollToSection("articles")}>Articles</Item>
           <Item onClick={() => scrollToSection("fashion-show")}>Fashion Show</Item>
           <Item onClick={() => scrollToSection("about-me")}>About Me</Item>
+          <Item onClick={() => scrollToSection("portfolio")}>Portfolio</Item>
           <Item onClick={() => scrollToSection("contact")}>Contact</Item>
         </Content>
       </DropdownMenu.Portal>

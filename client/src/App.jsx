@@ -9,6 +9,7 @@ import Articles from "./pages/articles-page/articles-slide.jsx";
 import FashionShow from "./pages/fashion-show-page/fashionshow.jsx";
 import AboutMe from "./pages/personal-data/aboutme.jsx";
 import ContactFooter from "./pages/personal-data/contac-footer.jsx";
+import Portfolio from "./pages/portfolio-page/portfolio.jsx";
 
 function App() {
   return (
@@ -29,6 +30,11 @@ function App() {
       <section id="about-me">
         <ScrollReveal>
           <AboutMe />
+        </ScrollReveal>
+      </section>
+      <section id="portfolio">
+        <ScrollReveal>
+          <Portfolio />
         </ScrollReveal>
       </section>
       <section id="contact">

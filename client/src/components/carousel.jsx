@@ -1,6 +1,6 @@
-import { useRef, useState } from "react";
+import { Children, useEffect, useRef, useState} from "react";
 import { BagModal } from "./modal";
-import { Carousel, Descriptions } from "antd";
+import { Carousel, ConfigProvider  } from "antd";
 import { motion, useAnimationFrame } from "framer-motion";
 import "../index.css"; // estilos para forzar alto en los wrappers internos
 
@@ -136,5 +136,56 @@ export function BagCarousel() {
         onClose={() => setSelectedBag(null)}
       />
     </>
+  );
+}
+
+// Hook reutilizable: se actualiza al girar o redimensionar
+function useMediaQuery(query) {
+  const [matches, setMatches] = useState(() => window.matchMedia(query).matches);
+
+  useEffect(() => {
+    const mql = window.matchMedia(query);
+    const onChange = (e) => setMatches(e.matches);
+    mql.addEventListener("change", onChange);
+    return () => mql.removeEventListener("change", onChange);
+  }, [query]);
+
+  return matches;
+}
+
+//CAROUSEL DE FLECHAS
+export function ArrowCarousel({ children }) {
+  const isMobile = useMediaQuery("(max-width: 767px)");
+  const [current, setCurrent] = useState(0);
+  const total = Children.count(children);
+
+  return (
+    <div>
+      <ConfigProvider theme={{ components: { Carousel: { arrowSize: 24 } } }}>
+        <Carousel
+          arrows={!isMobile}
+          dots={false}
+          infinite={false}
+          beforeChange={(_, next) => setCurrent(next)}
+          className="
+            md:px-12
+            [&_.slick-arrow]:!text-gray-400
+            [&_.slick-arrow]:!opacity-100
+            [&_.slick-arrow:hover]:!text-gray-600
+            [&_.slick-disabled]:!opacity-25
+            [&_.slick-prev]:!start-0
+            [&_.slick-next]:!end-0
+          "
+        >
+          {Children.map(children, (child) => (
+            <div className="p-2 md:p-6">{child}</div>
+          ))}
+        </Carousel>
+      </ConfigProvider>
+
+      <p className="mt-4 text-center text-sm tabular-nums text-gray-500">
+        {current + 1} / {total}
+      </p>
+    </div>
   );
 }
