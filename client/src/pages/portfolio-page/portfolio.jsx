@@ -29,7 +29,7 @@ export default function Portfolio() {
       <header className="mb-4 flex items-end justify-between gap-4 md:mb-10">
         <h2
           id="portfolio-title"
-          className="text-2xl tracking-tight md:text-3xl lg:text-4xl lowercase"
+          className="text-2xl tracking-tight md:text-3xl lg:text-4xl uppercase"
         >
           Portfolio
         </h2>
