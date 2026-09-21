@@ -80,7 +80,7 @@ export default function CarouselComponent({ children, className = "" }) {
   );
 }
 
-//MODAL CARRUSEL DE BOLSOS
+//////////////////////////////////////MODAL CARRUSEL DE BOLSOS////////////////////////////////////
 export function BagCarousel() {
   const x = useRef(0);
   const trackRef = useRef(null);
@@ -139,13 +139,17 @@ export function BagCarousel() {
   );
 }
 
-// Hook reutilizable: se actualiza al girar o redimensionar
+/////////////////////////////////////CAROUSEL DE FLECHAS///////////////////////////////////////////////
+// Se actualiza al girar el móvil o redimensionar la ventana
 function useMediaQuery(query) {
-  const [matches, setMatches] = useState(() => window.matchMedia(query).matches);
+  const [matches, setMatches] = useState(() =>
+    typeof window !== "undefined" ? window.matchMedia(query).matches : false
+  );
 
   useEffect(() => {
     const mql = window.matchMedia(query);
     const onChange = (e) => setMatches(e.matches);
+    setMatches(mql.matches);
     mql.addEventListener("change", onChange);
     return () => mql.removeEventListener("change", onChange);
   }, [query]);
@@ -153,39 +157,107 @@ function useMediaQuery(query) {
   return matches;
 }
 
-//CAROUSEL DE FLECHAS
-export function ArrowCarousel({ children }) {
+function Chevron({ direction }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width="20"
+      height="20"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d={direction === "left" ? "M15 5l-7 7 7 7" : "M9 5l7 7-7 7"} />
+    </svg>
+  );
+}
+
+const mobileButton =
+  "grid h-11 w-11 place-items-center text-gray-500 transition-colors " +
+  "hover:text-gray-800 disabled:opacity-25 disabled:hover:text-gray-500 " +
+  "focus-visible:outline focus-visible:outline-1 focus-visible:outline-gray-400";
+
+
+export function ArrowCarousel({ children, label = "Carrusel" }) {
   const isMobile = useMediaQuery("(max-width: 767px)");
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
+  const carouselRef = useRef(null);
   const [current, setCurrent] = useState(0);
   const total = Children.count(children);
 
+  const atStart = current === 0;
+  const atEnd = current === total - 1;
+
   return (
-    <div>
-      <ConfigProvider theme={{ components: { Carousel: { arrowSize: 24 } } }}>
+    <div
+      className="select-none"
+      role="region"
+      aria-roledescription="carrusel"
+      aria-label={label}
+    >
+      <ConfigProvider
+        theme={{ components: { Carousel: { arrowSize: isDesktop ? 28 : 22 } } }}
+      >
         <Carousel
+          ref={carouselRef}
           arrows={!isMobile}
           dots={false}
           infinite={false}
+          draggable
+          speed={350}
           beforeChange={(_, next) => setCurrent(next)}
           className="
-            md:px-12
+            md:px-10 lg:px-14
             [&_.slick-arrow]:!text-gray-400
             [&_.slick-arrow]:!opacity-100
-            [&_.slick-arrow:hover]:!text-gray-600
+            [&_.slick-arrow:hover]:!text-gray-700
             [&_.slick-disabled]:!opacity-25
             [&_.slick-prev]:!start-0
             [&_.slick-next]:!end-0
           "
         >
           {Children.map(children, (child) => (
-            <div className="p-2 md:p-6">{child}</div>
+            <div className="px-1 py-3 md:px-3 md:py-4">{child}</div>
           ))}
         </Carousel>
       </ConfigProvider>
 
-      <p className="mt-4 text-center text-sm tabular-nums text-gray-500">
-        {current + 1} / {total}
-      </p>
+      {/* En móvil las flechas bajan junto al contador, con zona táctil de 44px */}
+      <div className="mt-1 flex items-center justify-center gap-1 md:mt-4">
+        {isMobile && (
+          <button
+            type="button"
+            onClick={() => carouselRef.current?.prev()}
+            disabled={atStart}
+            aria-label="Página anterior"
+            className={mobileButton}
+          >
+            <Chevron direction="left" />
+          </button>
+        )}
+
+        <p
+          aria-live="polite"
+          className="min-w-[4.5rem] text-center text-sm tabular-nums text-gray-500"
+        >
+          {current + 1} / {total}
+        </p>
+
+        {isMobile && (
+          <button
+            type="button"
+            onClick={() => carouselRef.current?.next()}
+            disabled={atEnd}
+            aria-label="Página siguiente"
+            className={mobileButton}
+          >
+            <Chevron direction="right" />
+          </button>
+        )}
+      </div>
     </div>
   );
 }
