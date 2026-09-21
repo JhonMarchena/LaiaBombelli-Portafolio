@@ -1,6 +1,6 @@
 import {ArrowCarousel} from "../../components/carousel.jsx";
 
-const IK = import.meta.env.PROD_VITE_IK_URL;
+const IK = import.meta.env.VITE_IK_URL;
 const PDF = "portfolio/portfolio_laia_bombelli.pdf";
 const PAGINAS = 35; // ajusta al número real
 
