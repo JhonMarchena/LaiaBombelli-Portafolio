@@ -1,10 +1,10 @@
-import { Children, useEffect, useRef, useState} from "react";
+import { Children, useEffect, useRef, useState } from "react";
 import { BagModal } from "./modal";
-import { Carousel, ConfigProvider  } from "antd";
+import { Carousel, ConfigProvider } from "antd";
 import { motion, useAnimationFrame } from "framer-motion";
 import "../index.css"; // estilos para forzar alto en los wrappers internos
 
-//imagenes import
+// imagenes
 import img1 from "../assets/articles-slide/Opera_senza_titolo.webp";
 import img2 from "../assets/articles-slide/Opera_senza_titolo_1.webp";
 import img3 from "../assets/articles-slide/Opera_senza_titolo_2.webp";
@@ -12,14 +12,14 @@ import img4 from "../assets/articles-slide/Opera_senza_titolo_3.webp";
 import img5 from "../assets/articles-slide/Opera_senza_titolo_4.webp";
 import img6 from "../assets/articles-slide/Opera_senza_titolo_5.webp";
 
-//DATA BOLSOS CARRUSEL
+// DATA BOLSOS CARRUSEL
 const bags = [
   {
     id: 1,
     src: img1,
     name: "Bucket bag",
     description:
-      "Orange nubuck (suede). - Contrasting dark brown (testa di moro) smooth calfskin. - Union between the body and the base made with an ornamental cord and braided leather tubing. - Gold finish buckles.    - Dark brown calfskin handle, adjustable with a tongue buckle. - Front leather drawstring with structured loops.",
+      "Orange nubuck (suede). - Contrasting dark brown (testa di moro) smooth calfskin. - Union between the body and the base made with an ornamental cord and braided leather tubing. - Gold finish buckles. - Dark brown calfskin handle, adjustable with a tongue buckle. - Front leather drawstring with structured loops.",
   },
   {
     id: 2,
@@ -33,7 +33,7 @@ const bags = [
     src: img3,
     name: "Hand Bag",
     description:
-      "Smooth calfskin leather in a (testa di moro) tone. - Contrasting thick beige stitching details along the side profiles. - Panels joined through an interweaving of leather tubing. - Metal eyelets with gold finish and cuoio-colored leather laces hanging on the sides. - Single handle in coordinated leather, adjustable with gold buckles. - Top closure with a goldfinish zipper.",
+      "Smooth calfskin leather in a (testa di moro) tone. - Contrasting thick beige stitching details along the side profiles. - Panels joined through an interweaving of leather tubing. - Metal eyelets with gold finish and cuoio-colored leather laces hanging on the sides. - Single handle in coordinated leather, adjustable with gold buckles. - Top closure with a gold finish zipper.",
   },
   {
     id: 4,
@@ -58,89 +58,7 @@ const bags = [
   },
 ];
 
-export default function CarouselComponent({ children, className = "" }) {
-  return (
-    <Carousel
-      autoplay
-      autoplaySpeed={3000}
-      dots
-      effect="fade"
-      className={`
-      h-full
-      [&_.slick-list]:!h-full
-      [&_.slick-track]:!h-full
-      [&_.slick-dots]:!bottom-3
-      [&_.slick-dots_li_button]:!bg-white/70
-      [&_.slick-dots_li.slick-active_button]:!bg-white
-      ${className}
-`}
-    >
-      {children}
-    </Carousel>
-  );
-}
-
-//////////////////////////////////////MODAL CARRUSEL DE BOLSOS////////////////////////////////////
-export function BagCarousel() {
-  const x = useRef(0);
-  const trackRef = useRef(null);
-  const [paused, setPaused] = useState(false);
-  const [selectedBag, setSelectedBag] = useState(null);
-  const SPEED = 40; // px por segundo
-
-  // Duplicamos la lista para el loop infinito sin cortes
-  const items = [...bags, ...bags];
-
-  useAnimationFrame((_, delta) => {
-    if (paused || !trackRef.current) return;
-    x.current -= (SPEED * delta) / 1500;
-
-    // La mitad del track = ancho de una copia completa
-    const halfWidth = trackRef.current.scrollWidth / 2;
-    if (Math.abs(x.current) >= halfWidth) {
-      x.current = 0; // reinicia sin salto perceptible
-    }
-    trackRef.current.style.transform = `translateX(${x.current}px)`;
-  });
-
-  return (
-    <>
-      <div className="w-full overflow-hidden py-6 md:py-8 lg:py-10">
-        <div
-          className="flex gap-3 md:gap-4 lg:gap-6 w-max will-change-transform"
-          ref={trackRef}
-        >
-          {items.map((bag, i) => (
-            <motion.div
-              key={`${bag.id}-${i}`}
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="flex-shrink-0 w-32 md:w-36 lg:w-40 cursor-pointer"
-              onClick={() => setSelectedBag(bag)}
-            >
-              <img
-                src={bag.src}
-                alt={bag.name}
-                loading="lazy"
-                className="w-full aspect-[3/4] lg:aspect-[4/5] object-cover"
-                onMouseEnter={() => setPaused(true)}
-                onMouseLeave={() => setPaused(false)}
-              />
-            </motion.div>
-          ))}
-        </div>
-      </div>
-      <BagModal
-        bag={selectedBag}
-        open={selectedBag !== null}
-        onClose={() => setSelectedBag(null)}
-      />
-    </>
-  );
-}
-
-/////////////////////////////////////CAROUSEL DE FLECHAS///////////////////////////////////////////////
-// Se actualiza al girar el móvil o redimensionar la ventana
+// Hook: se actualiza al girar el móvil o redimensionar la ventana
 function useMediaQuery(query) {
   const [matches, setMatches] = useState(() =>
     typeof window !== "undefined" ? window.matchMedia(query).matches : false
@@ -157,39 +75,105 @@ function useMediaQuery(query) {
   return matches;
 }
 
-function Chevron({ direction }) {
+//////////////////////////////////////// CARRUSEL FADE ////////////////////////////////////////
+export default function CarouselComponent({ children, className = "" }) {
   return (
-    <svg
-      viewBox="0 0 24 24"
-      width="20"
-      height="20"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
+    <Carousel
+      autoplay
+      autoplaySpeed={3000}
+      dots
+      effect="fade"
+      className={`
+        h-full
+        [&_.slick-list]:!h-full
+        [&_.slick-track]:!h-full
+        [&_.slick-dots]:!bottom-3
+        [&_.slick-dots_li_button]:!bg-white/70
+        [&_.slick-dots_li.slick-active_button]:!bg-white
+        ${className}
+      `}
     >
-      <path d={direction === "left" ? "M15 5l-7 7 7 7" : "M9 5l7 7-7 7"} />
-    </svg>
+      {children}
+    </Carousel>
   );
 }
 
-const mobileButton =
-  "grid h-11 w-11 place-items-center text-gray-500 transition-colors " +
-  "hover:text-gray-800 disabled:opacity-25 disabled:hover:text-gray-500 " +
-  "focus-visible:outline focus-visible:outline-1 focus-visible:outline-gray-400";
+//////////////////////////////////// CARRUSEL INFINITO DE BOLSOS ////////////////////////////////////
+export function BagCarousel() {
+  const x = useRef(0);
+  const trackRef = useRef(null);
+  const [paused, setPaused] = useState(false);
+  const [selectedBag, setSelectedBag] = useState(null);
+  const isMobile = useMediaQuery("(max-width: 767px)");
 
+  // px por segundo: un poco más lento en móvil porque la pantalla es más estrecha
+  const SPEED = isMobile ? 25 : 40;
 
-export function ArrowCarousel({ children, label = "Carrusel" }) {
+  // Duplicamos la lista para el loop infinito sin cortes
+  const items = [...bags, ...bags];
+
+  useAnimationFrame((_, delta) => {
+    // Se detiene si está en hover, si el modal está abierto o si no hay track
+    if (paused || selectedBag || !trackRef.current) return;
+
+    x.current -= (SPEED * delta) / 1000; // delta viene en ms
+
+    // Como usamos padding (no gap), la mitad del track es exactamente una copia
+    const halfWidth = trackRef.current.scrollWidth / 2;
+    if (-x.current >= halfWidth) x.current += halfWidth;
+
+    trackRef.current.style.transform = `translate3d(${x.current}px, 0, 0)`;
+  });
+
+  return (
+    <>
+      <div
+        className="w-full overflow-hidden py-4 md:py-8 lg:py-10"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+      >
+        <div className="flex w-max will-change-transform" ref={trackRef}>
+          {items.map((bag, i) => (
+            <motion.button
+              type="button"
+              key={`${bag.id}-${i}`}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              className="flex-shrink-0 w-28 pr-2 sm:w-32 md:w-40 md:pr-4 lg:w-48 lg:pr-6 cursor-pointer"
+              onClick={() => setSelectedBag(bag)}
+              aria-label={`Ver ${bag.name}`}
+            >
+              <img
+                src={bag.src}
+                alt={bag.name}
+                loading="lazy"
+                draggable={false}
+                className="w-full aspect-[3/4] lg:aspect-[4/5] object-cover"
+              />
+            </motion.button>
+          ))}
+        </div>
+      </div>
+
+      <BagModal
+        bag={selectedBag}
+        open={selectedBag !== null}
+        onClose={() => setSelectedBag(null)}
+      />
+    </>
+  );
+}
+
+//////////////////////////////////////// CARRUSEL DE FLECHAS ////////////////////////////////////////
+export function ArrowCarousel({ children, label = "Carrusel", downloadLink}) {
   const isMobile = useMediaQuery("(max-width: 767px)");
   const isDesktop = useMediaQuery("(min-width: 1024px)");
-  const carouselRef = useRef(null);
   const [current, setCurrent] = useState(0);
   const total = Children.count(children);
 
-  const atStart = current === 0;
-  const atEnd = current === total - 1;
+  // Mismo diseño en móvil y PC: solo cambian las medidas
+  const arrowSize = isDesktop ? 28 : isMobile ? 18 : 22;
 
   return (
     <div
@@ -199,18 +183,21 @@ export function ArrowCarousel({ children, label = "Carrusel" }) {
       aria-label={label}
     >
       <ConfigProvider
-        theme={{ components: { Carousel: { arrowSize: isDesktop ? 28 : 22 } } }}
+        theme={{
+          components: {
+            Carousel: { arrowSize, arrowOffset: isMobile ? 4 : 8 },
+          },
+        }}
       >
         <Carousel
-          ref={carouselRef}
-          arrows={!isMobile}
+          arrows
           dots={false}
           infinite={false}
           draggable
           speed={350}
           beforeChange={(_, next) => setCurrent(next)}
           className="
-            md:px-10 lg:px-14
+            px-7 md:px-10 lg:px-14
             [&_.slick-arrow]:!text-gray-400
             [&_.slick-arrow]:!opacity-100
             [&_.slick-arrow:hover]:!text-gray-700
@@ -220,44 +207,23 @@ export function ArrowCarousel({ children, label = "Carrusel" }) {
           "
         >
           {Children.map(children, (child) => (
-            <div className="px-1 py-3 md:px-3 md:py-4">{child}</div>
+            <div className="py-2 md:px-3 md:py-4">{child}</div>
           ))}
         </Carousel>
       </ConfigProvider>
 
-      {/* En móvil las flechas bajan junto al contador, con zona táctil de 44px */}
-      <div className="mt-1 flex items-center justify-center gap-1 md:mt-4">
-        {isMobile && (
-          <button
-            type="button"
-            onClick={() => carouselRef.current?.prev()}
-            disabled={atStart}
-            aria-label="Página anterior"
-            className={mobileButton}
-          >
-            <Chevron direction="left" />
-          </button>
-        )}
+<div className="flex flex-col items-center justify-between ">
+  <div></div>
+ <p
+        aria-live="polite"
+        className="mt-2 text-center text-xs md:mt-4 md:text-sm tabular-nums text-gray-500"
+      >
+        {current + 1} / {total}
+      </p>
 
-        <p
-          aria-live="polite"
-          className="min-w-[4.5rem] text-center text-sm tabular-nums text-gray-500"
-        >
-          {current + 1} / {total}
-        </p>
-
-        {isMobile && (
-          <button
-            type="button"
-            onClick={() => carouselRef.current?.next()}
-            disabled={atEnd}
-            aria-label="Página siguiente"
-            className={mobileButton}
-          >
-            <Chevron direction="right" />
-          </button>
-        )}
-      </div>
+      {downloadLink}
+</div>
+     
     </div>
   );
 }
